@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="매일 영감을 주는 명언을 만나보세요. 나만의 명언을 추가하고 공유할 수 있습니다.">
+  <title>오늘의 명언 - 영감을 주는 지혜</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 테마 토글 버튼 -->
+  <button 
+    id="theme-toggle" 
+    class="theme-toggle" 
+    aria-label="테마 변경"
+    title="라이트/다크 테마 전환">
+    <span class="theme-icon" aria-hidden="true"></span>
+  </button>
+
+  <main class="container">
+    <!-- 명언 표시 카드 -->
+    <section class="quote-card" aria-live="polite" aria-atomic="true">
+      <h1 class="visually-hidden">오늘의 명언</h1>
+      
+      <div class="quote-content">
+        <blockquote id="quote-text" class="quote-text">
+          명언을 불러오는 중...
+        </blockquote>
+        <cite id="quote-author" class="quote-author">
+          — 저자
+        </cite>
+      </div>
+
+      <!-- 액션 버튼 그룹 -->
+      <div class="action-buttons">
+        <button 
+          id="next-quote-btn" 
+          class="btn btn-primary"
+          aria-label="다음 명언 보기">
+          <span aria-hidden="true">🔄</span>
+          다음 명언
+        </button>
+        <button 
+          id="copy-btn" 
+          class="btn btn-secondary"
+          aria-label="명언을 클립보드에 복사">
+          <span aria-hidden="true">📋</span>
+          복사
+        </button>
+        <button 
+          id="share-btn" 
+          class="btn btn-secondary"
+          aria-label="명언 공유하기">
+          <span aria-hidden="true">🔗</span>
+          공유
+        </button>
+      </div>
+
+      <!-- 피드백 메시지 -->
+      <div 
+        id="feedback-message" 
+        class="feedback-message" 
+        role="status" 
+        aria-live="polite"
+        aria-atomic="true">
+      </div>
+    </section>
+
+    <!-- 나만의 명언 추가 섹션 -->
+    <section class="add-quote-section">
+      <h2 class="section-title">나만의 명언 추가하기</h2>
+      
+      <form id="add-quote-form" class="quote-form">
+        <div class="form-group">
+          <label for="new-quote-text" class="form-label">
+            명언 <span class="required" aria-label="필수 입력">*</span>
+          </label>
+          <textarea 
+            id="new-quote-text" 
+            class="form-input"
+            placeholder="영감을 주는 명언을 입력하세요"
+            required
+            rows="3"
+            maxlength="300"
+            aria-required="true"
+            aria-describedby="quote-text-hint"></textarea>
+          <small id="quote-text-hint" class="form-hint">최대 300자</small>
+        </div>
+
+        <div class="form-group">
+          <label for="new-quote-author" class="form-label">
+            저자 <span class="required" aria-label="필수 입력">*</span>
+          </label>
+          <input 
+            type="text" 
+            id="new-quote-author" 
+            class="form-input"
+            placeholder="저자명을 입력하세요"
+            required
+            maxlength="100"
+            aria-required="true"
+            aria-describedby="author-hint">
+          <small id="author-hint" class="form-hint">최대 100자</small>
+        </div>
+
+        <button 
+          type="submit" 
+          class="btn btn-add"
+          aria-label="새 명언 추가">
+          <span aria-hidden="true">➕</span>
+          명언 추가
+        </button>
+      </form>
+    </section>
+
+    <!-- 내 명언 목록 -->
+    <section class="my-quotes-section">
+      <h2 class="section-title">내가 추가한 명언 목록</h2>
+      <ul 
+        id="custom-quotes-list" 
+        class="quotes-list"
+        role="list"
+        aria-label="사용자 정의 명언 목록">
+      </ul>
+      <p id="empty-list-message" class="empty-message">
+        아직 추가한 명언이 없습니다.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 오늘의 명언. Made with JUN.VIBE & Cursor</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
